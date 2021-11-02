@@ -1,0 +1,86 @@
+{
+  "name": "movielandapp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "android:clean": "cd android && ./gradlew clean && cd ../",
+    "ios": "react-native run-ios",
+    "ios:pod": "cd ios && pod deintegrate && pod install && cd ..",
+    "ios:clean": "cd ios && xcodebuild clean && cd ../",
+    "install_dependencies": "rm -rf node_modules && npm install --force",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint --ext .tsx,.ts",
+    "ts-check": "tsc",
+    "setup": "yarn install_dependencies && yarn ios:pod && yarn cache clean",
+    "format-staged-code": "pretty-quick --staged --pattern \"**/*.ts{,x}\"",
+    "pre-commit-hook": "yarn ts-check && yarn lint && yarn format-staged-code",
+    "pre-push-hook": "jest --coverage --watchAll=false"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.15.6",
+    "@react-native-community/slider": "^4.1.7",
+    "@react-navigation/native": "^6.0.4",
+    "@react-navigation/native-stack": "^6.2.2",
+    "@types/react-native-orientation": "^5.0.1",
+    "@types/react-native-snap-carousel": "^3.8.4",
+    "@types/react-native-video": "^5.0.9",
+    "@types/styled-components": "^5.1.14",
+    "@types/styled-components-react-native": "^5.1.1",
+    "axios": "^0.21.4",
+    "husky": "^7.0.2",
+    "pretty-quick": "^3.1.1",
+    "react": "17.0.2",
+    "react-native": "^0.64.2",
+    "react-native-config": "^1.4.4",
+    "react-native-linear-gradient": "^2.5.6",
+    "react-native-orientation": "^3.1.3",
+    "react-native-safe-area-context": "^3.3.2",
+    "react-native-screens": "^3.8.0",
+    "react-native-shimmer-placeholder": "^2.0.8",
+    "react-native-snap-carousel": "^3.9.1",
+    "react-native-video": "^5.1.1",
+    "styled-component": "^2.8.0",
+    "styled-components": "^5.3.1",
+    "ts-jest": "^27.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "@babel/runtime": "^7.15.4",
+    "@react-native-community/eslint-config": "^3.0.1",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@types/jest": "^27.0.2",
+    "@types/react": "^17.0.24",
+    "@types/react-native": "^0.65.1",
+    "@types/react-test-renderer": "^17.0.1",
+    "babel-jest": "^27.2.4",
+    "eslint": "^7.32.0",
+    "jest": "^27.2.4",
+    "metro-react-native-babel-preset": "^0.66.2",
+    "react-native-codegen": "^0.0.7",
+    "react-test-renderer": "17.0.2",
+    "typescript": "^4.4.3"
+  },
+  "jest": {
+    "preset": "react-native",
+    "testMatch": [
+      "<rootDir>/src/**/*.test.tsx",
+      "<rootDir>/src/**/*.test.ts"
+    ],
+    "testResultsProcessor": "jest-sonar-reporter",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.tsx$": "babel-jest",
+      "^.+\\.ts$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|@react-native-community)"
+    ]
+  }
+}
