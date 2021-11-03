@@ -8,7 +8,7 @@
     "ios": "react-native run-ios",
     "ios:pod": "cd ios && pod deintegrate && pod install && cd ..",
     "ios:clean": "cd ios && xcodebuild clean && cd ../",
-    "install_dependencies": "rm -rf node_modules && npm install --force",
+    "install_dependencies": "rm -rf node_modules && yarn",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint --ext .tsx,.ts",
@@ -20,6 +20,8 @@
   },
   "dependencies": {
     "@babel/preset-env": "^7.15.6",
+    "@react-native-community/cli": "^6.1.0",
+    "@react-native-community/cli-platform-ios": "^6.1.0",
     "@react-native-community/slider": "^4.1.7",
     "@react-navigation/native": "^6.0.4",
     "@react-navigation/native-stack": "^6.2.2",

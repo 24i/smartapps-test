@@ -15,6 +15,8 @@ __generated__
 *.ap_
 *.aab
 
+ios/Pods/
+
 # Files for the ART/Dalvik VM
 *.dex
 
@@ -208,7 +210,7 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+#.env
 .env.test
 .env.production
 
